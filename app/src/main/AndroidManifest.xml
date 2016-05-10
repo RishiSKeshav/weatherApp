@@ -21,11 +21,6 @@
             android:name=".Main2Activity"
             android:parentActivityName=".MainActivity" >
         </activity>
-        <activity
-            android:name=".AddCityActivity"
-            android:label="@string/title_activity_add_city"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
     </application>
 
 </manifest>

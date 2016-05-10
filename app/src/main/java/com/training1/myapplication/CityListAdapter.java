@@ -45,8 +45,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ListVi
                 context.startActivity(intent);
             }
         });
-
-
     }
 
     @Override

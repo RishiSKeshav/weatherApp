@@ -5,7 +5,7 @@
 
     <dimen name="recyclerView_Margin">5dp</dimen>
 
-    <dimen name="fragment_cardView">15dp</dimen>
+    <dimen name="fragment_cardView">25dp</dimen>
     <dimen name="fragment_degree_textSize">35dp</dimen>
     <dimen name="fragment_city_textSize">20dp</dimen>
     <dimen name="fragment_time_textSize">13dp</dimen>
