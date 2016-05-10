@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.training1.myapplication.DetailFragment">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/detail_fragment_Margin"
+            android:textSize="@dimen/detail_fragment_city_TextSize"/>
+
+        <TextView
+            android:id="@+id/degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city"
+            android:layout_marginTop="@dimen/detail_fragment_degree_Margin_top"
+            android:layout_marginLeft="@dimen/detail_fragment_Margin"
+            android:layout_marginBottom="@dimen/detail_fragment_Margin"
+            android:textSize="@dimen/detail_fragment_degree_TextSize"/>
+
+        <TextView
+            android:id="@+id/weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/degree"
+            android:textSize="@dimen/detail_fragment_weather_TextSize"
+            android:layout_margin="@dimen/detail_fragment_Margin"/>
+
+        <TextView
+            android:id="@+id/feelsLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weather"
+            android:textSize="@dimen/detail_fragment_weather_TextSize"
+            android:layout_margin="@dimen/detail_fragment_Margin"/>
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/feelsLike"
+            android:textSize="@dimen/detail_fragment_weather_TextSize"
+            android:layout_margin="@dimen/detail_fragment_Margin"/>
+
+        <TextView
+            android:id="@+id/windDirection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/humidity"
+            android:textSize="@dimen/detail_fragment_weather_TextSize"
+            android:layout_margin="@dimen/detail_fragment_Margin"/>
+
+        <TextView
+            android:id="@+id/windspeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/humidity"
+            android:layout_toRightOf="@+id/windDirection"
+            android:textSize="@dimen/detail_fragment_weather_TextSize"
+            android:layout_margin="@dimen/detail_fragment_Margin"/>
+    </RelativeLayout>
+</FrameLayout>
