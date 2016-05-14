@@ -4,21 +4,23 @@
     android:layout_height="match_parent"
     tools:context="com.training1.myapplication.DetailFragment">
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         card:cardBackgroundColor="#1565C0"
         card:cardCornerRadius="2dp"
-        card:cardElevation="1dp">
+        card:cardElevation="3dp">
 
         <TableLayout
-            android:id="@+id/relative_layout"
+            android:id="@+id/table_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:padding="5dp">
+            android:padding="5dp"
+            >
 
             <TableRow>
 
@@ -52,7 +54,10 @@
             </TableRow>
 
             <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin">
+                android:layout_margin="@dimen/detail_fragment_Margin"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:stretchColumns="*">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,11 +69,14 @@
                     android:id="@+id/weather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/detail_fragment_details_TextSize" />
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:gravity="right"
+                    android:layout_weight="1.0"/>
             </TableRow>
 
             <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin">
+                android:layout_margin="@dimen/detail_fragment_Margin"
+                android:stretchColumns="*">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,11 +88,14 @@
                     android:id="@+id/feelsLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/detail_fragment_details_TextSize" />
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:gravity="right"
+                    android:layout_weight="1.0"/>
             </TableRow>
 
             <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin">
+                android:layout_margin="@dimen/detail_fragment_Margin"
+                android:stretchColumns="*">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,11 +107,14 @@
                     android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/detail_fragment_details_TextSize" />
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:gravity="right"
+                    android:layout_weight="1.0"/>
             </TableRow>
 
             <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin">
+                android:layout_margin="@dimen/detail_fragment_Margin"
+                android:stretchColumns="*">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -112,11 +126,14 @@
                     android:id="@+id/windDirection"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/detail_fragment_details_TextSize" />
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:gravity="right"
+                    android:layout_weight="1.0"/>
             </TableRow>
 
             <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin">
+                android:layout_margin="@dimen/detail_fragment_Margin"
+                android:stretchColumns="*">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -128,7 +145,9 @@
                     android:id="@+id/windspeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/detail_fragment_details_TextSize" />
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:gravity="right"
+                    android:layout_weight="1.0"/>
             </TableRow>
         </TableLayout>
 
