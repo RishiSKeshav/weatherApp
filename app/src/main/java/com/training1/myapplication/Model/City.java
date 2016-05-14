@@ -1,4 +1,4 @@
-package com.training1.myapplication;
+package com.training1.myapplication.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -16,6 +16,7 @@ public class City implements Parcelable {
     private String humidity;
     private String windSpeed;
     private String windDirection;
+    private String imageUrl;
 
     public City(){
 
@@ -101,6 +102,14 @@ public class City implements Parcelable {
         this.windDirection = windDirection;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public int describeContents() {
         return this.hashCode();
@@ -116,6 +125,7 @@ public class City implements Parcelable {
         dest.writeString(windSpeed);
         dest.writeString(windDirection);
         dest.writeString(humidity);
+        dest.writeString(imageUrl);
     }
     private void readFromParcel(Parcel in) {
 
@@ -127,5 +137,6 @@ public class City implements Parcelable {
         windSpeed= in.readString();
         windDirection= in.readString();
         humidity= in.readString();
+        imageUrl = in.readString();
     }
 }

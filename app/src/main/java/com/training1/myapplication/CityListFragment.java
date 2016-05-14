@@ -13,7 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import com.training1.myapplication.Model.City;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class CityListFragment extends Fragment {
     private ResultBroadcastReceiver receiver;
     private IntentFilter resultFilter;
     private ArrayList<City> cities;
+    private List<String> cityList;
 
     public CityListFragment() {
         // Required empty public constructor
@@ -56,7 +58,7 @@ public class CityListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("CityListFragment","onCreateView");
+        Log.d("CityListFragment", "onCreateView");
         view = inflater.inflate(R.layout.fragment_city_list,container,false);
         return view;
     }
@@ -66,26 +68,20 @@ public class CityListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d("CityListFragment", "onViewCreated");
 
-        List<String> cityList = sharedPreference.getFavorites(getContext());
+        cityList = sharedPreference.getFavorites(getContext());
 
         pd = new ProgressDialog(getActivity());
         pd.setMessage("Downloading please wait...");
         pd.setCanceledOnTouchOutside(false);
 
-        if(cityList.size()>0)
-            new WeatherAsyncTask(pd,getContext()).execute(cityList);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new CityListAdapter(cities,getContext());
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
         Log.d("CityListFragment", "onStart");
     }
 
@@ -95,6 +91,13 @@ public class CityListFragment extends Fragment {
 
         Log.d("CityListFragment", "onResume");
         getContext().registerReceiver(receiver, resultFilter);
+
+        if(cityList.size()>0)
+            new WeatherAsyncTask(pd,getContext()).execute(cityList);
+
+        adapter = new CityListAdapter(cities,getContext());
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -125,7 +128,6 @@ public class CityListFragment extends Fragment {
                 pd.dismiss();
 
             cities = MySingleton.getInstance().getCities();
-            //cities = intent.getParcelableArrayListExtra("cities");
 
             if(cities!=null && !cities.isEmpty()) {
                 adapter = new CityListAdapter(cities,getContext());

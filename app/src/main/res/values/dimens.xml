@@ -12,15 +12,11 @@
     <dimen name="fragment_card_padding">5dp</dimen>
     <dimen name="fragment_cityTime_padding">5dp</dimen>
 
-    <dimen name="detail_fragment_Margin">2dp</dimen>
-    <dimen name="detail_fragment_city_TextSize">35dp</dimen>
-    <dimen name="detail_fragment_degree_TextSize">40dp</dimen>
+    <dimen name="detail_fragment_Margin">6dp</dimen>
+    <dimen name="detail_fragment_city_TextSize">30dp</dimen>
+    <dimen name="detail_fragment_degree_TextSize">30dp</dimen>
     <dimen name="detail_fragment_degree_Margin_top">20dp</dimen>
-    <dimen name="detail_fragment_weather_TextSize">20dp</dimen>
-    <dimen name="detail_fragment_feelsLike_TextSize">25dp</dimen>
-    <dimen name="detail_fragment_humidity_TextSize">25dp</dimen>
-    <dimen name="detail_fragment_windSpeed_TextSize">25dp</dimen>
-    <dimen name="detail_fragment_windDirection_TextSize">25dp</dimen>
+    <dimen name="detail_fragment_details_TextSize">17dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
 </resources>

@@ -2,9 +2,10 @@ package com.training1.myapplication;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +13,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,14 +29,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("WeatherApp");
-        actionBar.setIcon(R.drawable.ic_action_icon);
+        getSupportActionBar().setTitle("WeatherApp");
+        getSupportActionBar().setIcon(R.drawable.ic_action_icon);
 
         sharedPreference = new SharedPreference();
+
+        if(sharedPreference.getCityCount(getApplicationContext())>0){
+            callFragment(new CityListFragment());
+        }
+        else{
+            callFragment(new LocationFragment());
+        }
     }
 
-    private void getCityStateDetails1(){
+    private void callFragment(Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction trans = manager.beginTransaction();
+
+        trans.replace(R.id.frameLayout,fragment );
+        trans.commit();
+    }
+
+    private void getCityStateDetails(){
 
         View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.city_prompt,null);
 
@@ -48,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
+
                                 city=cityName.getText().toString();
                                 state=stateName.getText().toString();
 
@@ -56,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                                 FragmentManager manager = getSupportFragmentManager();
                                 FragmentTransaction transaction = manager.beginTransaction();
 
-                                transaction.add(R.id.list_fragment, fragment);
+                                transaction.replace(R.id.frameLayout, fragment);
                                 transaction.commit();
                             }
                         })
@@ -82,12 +100,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                getCityStateDetails1();
+
+                startActivity(new Intent(this,AddCityActivity.class));
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.training1.myapplication.Model.City;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by RishiS on 5/8/2016.
@@ -40,7 +41,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ListVi
         holder.card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,Main2Activity.class);
+                Intent intent = new Intent(context,DetailActivity.class);
                 intent.putExtra("city",cities.get(position));
                 context.startActivity(intent);
             }

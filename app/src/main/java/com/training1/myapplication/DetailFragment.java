@@ -1,7 +1,6 @@
 package com.training1.myapplication;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.training1.myapplication.Model.City;
 
 
 /**
@@ -62,9 +63,9 @@ public class DetailFragment extends Fragment {
         cityName.setText(city.getCityName());
         degree.setText(city.getDegree());
         weather.setText(city.getWeather());
-        feelsLike.setText("Feels Like "+city.getFeelsLike());
-        humidity.setText("Humidity "+city.getHumidity());
-        windDirection.setText("Wind "+ city.getWindDirection());
-        windSpeed.setText(" "+ city.getWindSpeed());
+        feelsLike.setText(city.getFeelsLike());
+        humidity.setText(city.getHumidity());
+        windDirection.setText(city.getWindDirection());
+        windSpeed.setText(city.getWindSpeed());
     }
 }

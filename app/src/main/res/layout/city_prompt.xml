@@ -8,11 +8,13 @@
         android:id="@+id/cityName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/dialog_city_name"/>
+        android:hint="@string/dialog_city_name"
+        android:textColor="@color/editTextColor"/>
 
     <EditText
         android:id="@+id/stateName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/dialog_state_name"/>
+        android:hint="@string/dialog_state_name"
+        android:textColor="@color/editTextColor"/>
 </LinearLayout>

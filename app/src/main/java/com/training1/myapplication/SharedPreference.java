@@ -45,8 +45,10 @@ public class SharedPreference {
         List<String> cities = getFavorites(context);
         if (cities == null)
             cities = new ArrayList<String>();
-        cities.add(city);
-        saveFavorites(context, cities);
+        if(!cities.contains(city)) {
+            cities.add(city);
+            saveFavorites(context, cities);
+        }
     }
 
     public void removeFavorite(Context context, String city) {
@@ -82,5 +84,9 @@ public class SharedPreference {
             }
 
         return (ArrayList<String>) cities;
+    }
+
+    public int getCityCount(Context context){
+        return getFavorites(context).size();
     }
 }

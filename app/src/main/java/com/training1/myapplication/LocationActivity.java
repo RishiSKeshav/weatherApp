@@ -5,17 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class Main2Activity extends AppCompatActivity {
+public class LocationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
-        City city =(City) (getIntent().getExtras().get("city"));
+        setContentView(R.layout.activity_location);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(city.getCityName());
         actionBar.setDisplayHomeAsUpEnabled(true);
 
     }

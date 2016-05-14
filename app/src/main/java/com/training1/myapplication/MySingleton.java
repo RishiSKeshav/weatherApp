@@ -1,5 +1,7 @@
 package com.training1.myapplication;
 
+import com.training1.myapplication.Model.City;
+
 import java.util.ArrayList;
 
 /**
