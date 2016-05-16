@@ -1,4 +1,4 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.training1.myapplication.Model.City;
+import com.training1.iMobile3.Model.City;
+import com.training1.iMobile3.R;
 
 import java.util.ArrayList;
 
 /**
- * Created by RishiS on 5/8/2016.
+ * Created by RishiS on 5/13/2016.
  */
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ListViewHolder> {
 

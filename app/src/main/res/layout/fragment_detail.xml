@@ -1,26 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.training1.myapplication.DetailFragment">
+    tools:context="com.training1.iMobile3.Presentation.DetailFragment"
+    style="@style/TextColorTheme">
 
     <android.support.v7.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         card:cardBackgroundColor="#1565C0"
         card:cardCornerRadius="2dp"
-        card:cardElevation="3dp">
+        card:cardElevation="3dp"
+        android:visibility="gone">
 
         <TableLayout
             android:id="@+id/table_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:padding="5dp"
-            >
+
+            android:padding="5dp">
 
             <TableRow>
 
@@ -29,127 +31,172 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/detail_fragment_Margin"
-                    android:textSize="@dimen/detail_fragment_city_TextSize" />
+                    android:textSize="@dimen/detail_fragment_city_TextSize"
+                    style="@style/TextColorTheme"/>
             </TableRow>
 
             <TableRow>
+
                 <TextView
-                    android:layout_height="wrap_content"
+                    android:id="@+id/now"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/detail_fragment_Margin"
                     android:layout_marginLeft="@dimen/detail_fragment_Margin"
                     android:layout_marginTop="@dimen/detail_fragment_degree_Margin_top"
+                    android:text="NOW"
                     android:textSize="25dp"
-                    android:text="NOW"/>
+                    android:visibility="gone"
+                    style="@style/TextColorTheme"/>
             </TableRow>
-            <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin">
+
+            <TableRow android:layout_margin="@dimen/detail_fragment_Margin">
 
                 <TextView
                     android:id="@+id/degree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/detail_fragment_degree_TextSize" />
+                    android:textSize="@dimen/detail_fragment_degree_TextSize"
+                    style="@style/TextColorTheme"/>
 
             </TableRow>
 
             <TableRow
-                android:layout_margin="@dimen/detail_fragment_Margin"
-                android:layout_height="fill_parent"
                 android:layout_width="fill_parent"
-                android:stretchColumns="*">
+                android:layout_height="fill_parent"
+                android:layout_margin="@dimen/detail_fragment_Margin"
+                android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/weatherH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
                     android:text="WEATHER"
-                    android:textSize="@dimen/detail_fragment_details_TextSize"/>
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:visibility="gone"
+                    style="@style/TextColorTheme"/>
 
                 <TextView
                     android:id="@+id/weather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
-                    android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    style="@style/TextColorTheme"/>
+
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1.0">
 
                 <TextView
+                    android:id="@+id/feelsLikeH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="FEELS LIKE"
-                    android:textSize="@dimen/detail_fragment_details_TextSize"/>
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:layout_weight="0.2"
+                    android:visibility="gone"
+                    style="@style/TextColorTheme"/>
 
                 <TextView
                     android:id="@+id/feelsLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:ellipsize="end"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
-                    android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    style="@style/TextColorTheme"/>
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/humidityH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="HUMIDITY"
-                    android:textSize="@dimen/detail_fragment_details_TextSize"/>
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:layout_weight="0.2"
+                    android:visibility="gone"
+                    style="@style/TextColorTheme"/>
 
                 <TextView
                     android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:paddingLeft="10dp"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
-                    android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    style="@style/TextColorTheme"/>
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/windDirectionH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="WIND"
-                    android:textSize="@dimen/detail_fragment_details_TextSize"/>
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:layout_weight="0.2"
+                    android:visibility="gone"
+                    style="@style/TextColorTheme"/>
 
                 <TextView
                     android:id="@+id/windDirection"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:ellipsize="end"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
-                    android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    style="@style/TextColorTheme"/>
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/windspeedH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="WIND SPEED"
-                    android:textSize="@dimen/detail_fragment_details_TextSize"/>
+                    android:textSize="@dimen/detail_fragment_details_TextSize"
+                    android:visibility="gone"
+                    android:layout_weight="0.2"
+                    style="@style/TextColorTheme"/>
 
                 <TextView
                     android:id="@+id/windspeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:ellipsize="end"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
-                    android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    style="@style/TextColorTheme"/>
             </TableRow>
         </TableLayout>
 
     </android.support.v7.widget.CardView>
-</FrameLayout>
+</ScrollView>

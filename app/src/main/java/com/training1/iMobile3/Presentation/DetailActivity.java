@@ -1,11 +1,12 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.training1.myapplication.Model.City;
+import com.training1.iMobile3.Model.City;
+import com.training1.iMobile3.R;
 
 public class DetailActivity extends AppCompatActivity {
 

@@ -1,11 +1,11 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
-import com.training1.myapplication.Model.City;
+import com.training1.iMobile3.Model.City;
 
 import java.util.ArrayList;
 
 /**
- * Created by RishiS on 5/9/2016.
+ * Created by RishiS on 5/13/2016.
  */
 public class MySingleton {
 

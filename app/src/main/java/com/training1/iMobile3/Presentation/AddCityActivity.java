@@ -1,4 +1,4 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,40 +19,41 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import java.lang.reflect.Array;
+import com.training1.iMobile3.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddCityActivity extends AppCompatActivity{
+public class AddCityActivity extends AppCompatActivity {
 
-    protected final static String SEARCH_TERM = "search_term";
-    private EditText search;
-    private ArrayAdapter<String> listAdapter;
-    private ListView listView;
+    private EditText mSearch;
+    private ArrayAdapter<String> mListAdapter;
+    private ListView mListView;
+    private ResultBroadcastReceiever mReceiever;
+    private IntentFilter mFilter;
+    private List<String> mList;
+    private SharedPreference mSharedPreference;
     private ProgressDialog pd;
-    private ResultBroadcastReceiever receiever;
-    private IntentFilter filter;
-    private List<String> list;
-    private SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_city);
 
-        sharedPreference = new SharedPreference();
-        list = new ArrayList<>();
-        listView=(ListView) findViewById(R.id.listView);
-        listAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,list);
-        listView.setAdapter(listAdapter);
+        mSharedPreference = new SharedPreference();
+        mList = new ArrayList<>();
+        mListView = (ListView) findViewById(R.id.listView);
+        mListAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_1, mList);
+        mListView.setAdapter(mListAdapter);
 
-        filter = new IntentFilter("autocompleteAction");
+        mFilter = new IntentFilter("autocompleteAction");
 
-        search = (EditText) findViewById(R.id.url);
+        mSearch = (EditText) findViewById(R.id.url);
         getSupportActionBar().setTitle("Add a City");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        search.addTextChangedListener(new TextWatcher() {
+        mSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -62,7 +62,9 @@ public class AddCityActivity extends AppCompatActivity{
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                new AutocompleteAsyncTask(getApplicationContext(), pd).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, search.getText().toString());
+                new AutocompleteAsyncTask(getApplicationContext(), pd)
+                        .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, mSearch.getText()
+                                .toString());
             }
 
             @Override
@@ -71,13 +73,15 @@ public class AddCityActivity extends AppCompatActivity{
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                sharedPreference.addCity(getApplicationContext(), cleanUp(parent.getItemAtPosition(position).toString()));
+                mSharedPreference.addCity(getApplicationContext(),
+                        cleanUp(parent.getItemAtPosition(position).toString()));
 
-                Intent intent = new Intent(AddCityActivity.this,MainActivity.class);
+                /*Starting MainActivity after adding the city to shared preference*/
+                Intent intent = new Intent(AddCityActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -88,14 +92,15 @@ public class AddCityActivity extends AppCompatActivity{
     protected void onResume() {
         super.onResume();
 
-        receiever = new ResultBroadcastReceiever();
-        registerReceiver(receiever, filter);
+        mReceiever = new ResultBroadcastReceiever();
+        registerReceiver(mReceiever, mFilter);
 
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(receiever);
+        unregisterReceiver(mReceiever);
     }
 
     @Override
@@ -110,7 +115,7 @@ public class AddCityActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
@@ -119,20 +124,23 @@ public class AddCityActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-    private String cleanUp(String selectedItem){
+    /*cleanUp method is to format the selectedItem as needed*/
+    private String cleanUp(String selectedItem) {
 
         String[] temp = selectedItem.split(",");
-        return temp[1].trim().replace(" ","_") + "," + temp[0].trim().replace(" ","_");
+        return temp[1].trim().replace(" ", "_") + "," + temp[0].trim().replace(" ", "_");
     }
 
-    public class ResultBroadcastReceiever extends BroadcastReceiver{
+    public class ResultBroadcastReceiever extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            listAdapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.autocomplete_item,R.id.txtview,intent.getStringArrayListExtra("suggestion"));
-            listView.setAdapter(listAdapter);
-            listAdapter.notifyDataSetChanged();
+            mListAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                    R.layout.autocomplete_item, R.id.txtview,
+                    intent.getStringArrayListExtra("suggestion"));
+            mListView.setAdapter(mListAdapter);
+            mListAdapter.notifyDataSetChanged();
         }
     }
 }

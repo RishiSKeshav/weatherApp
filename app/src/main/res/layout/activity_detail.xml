@@ -7,11 +7,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.training1.myapplication.DetailActivity">
+    tools:context="com.training1.iMobile3.Presentation.DetailActivity">
 
     <fragment
         android:id="@+id/detailFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.training1.myapplication.DetailFragment"/>
+        android:name="com.training1.iMobile3.Presentation.DetailFragment"/>
 </RelativeLayout>

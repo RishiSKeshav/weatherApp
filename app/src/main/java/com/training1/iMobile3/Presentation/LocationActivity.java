@@ -1,9 +1,11 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.training1.iMobile3.R;
 
 public class LocationActivity extends AppCompatActivity {
 
@@ -12,8 +14,7 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
     @Override

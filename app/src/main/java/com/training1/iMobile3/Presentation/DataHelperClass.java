@@ -1,8 +1,8 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.util.Log;
 
-import com.training1.myapplication.Model.City;
+import com.training1.iMobile3.Model.City;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,12 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by RishiS on 5/12/2016.
+ * Created by RishiS on 5/13/2016.
  */
+
+
+/*This class is needs a background thread as it is mainly used in making network calls */
 public class DataHelperClass {
 
     final String API_KEY = "f5277aaefe60dff1";
-    private ArrayList<City> cities = new ArrayList<City>();
+    private ArrayList<City> mCities = new ArrayList<City>();
+    private final String SOMETHING_WENT_WRONG="SOMETHING_WENT_WRONG";
 
     public String getStateName(String s){
 
@@ -65,13 +69,15 @@ public class DataHelperClass {
         catch(IOException ex){
             Log.d("IOEX", ex.getMessage());
 
+            response=SOMETHING_WENT_WRONG;
+
         }
         return response;
     }
 
     public void prepareWeatherData(String response){
 
-        cities.add(parseResponse(response));
+        mCities.add(parseResponse(response));
     }
 
     public City parseResponse(String response){
@@ -93,6 +99,10 @@ public class DataHelperClass {
 
         } catch (JSONException e) {
             e.printStackTrace();
+
+            /*Catching JSONExcetpion and making city=null. So that a message can be shown to user
+            that something went wrong*/
+            city=null;
         }
 
         return city;
@@ -112,11 +122,14 @@ public class DataHelperClass {
         }
         catch (JSONException ex){
 
+            /*Catching JSONExcetpion and making list=null. So that a message can be shown to user
+            that something went wrong*/
+            list=null;
         }
         return list;
     }
 
     public ArrayList<City> getCities(){
-        return cities;
+        return mCities;
     }
 }

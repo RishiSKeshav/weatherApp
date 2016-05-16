@@ -7,4 +7,5 @@
     <string name="title_activity_add_city">AddCityActivity</string>
     <string name="dialog_city_name">Enter City Name</string>
     <string name="dialog_state_name">Enter State Name</string>
+    <string name="google_app_id">weatherapp-1312</string>
 </resources>

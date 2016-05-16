@@ -1,9 +1,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.training1.myapplication.LocationFragment">
+    tools:context="com.training1.iMobile3.Presentation.LocationFragment">
 
-    <android.support.v7.widget.CardView
+
+    <include layout="@layout/fragment_detail" />
+
+<!--    <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
@@ -56,7 +59,8 @@
                 android:layout_margin="@dimen/detail_fragment_Margin"
                 android:layout_height="fill_parent"
                 android:layout_width="fill_parent"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,12 +74,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
                     android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1.0">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -89,12 +96,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
                     android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,12 +118,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
                     android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,12 +140,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
                     android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
             </TableRow>
 
             <TableRow
                 android:layout_margin="@dimen/detail_fragment_Margin"
-                android:stretchColumns="*">
+                android:stretchColumns="*"
+                android:weightSum="1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,10 +162,12 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/detail_fragment_details_TextSize"
                     android:gravity="right"
-                    android:layout_weight="1.0"/>
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
             </TableRow>
         </TableLayout>
 
-    </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
 
 </FrameLayout>

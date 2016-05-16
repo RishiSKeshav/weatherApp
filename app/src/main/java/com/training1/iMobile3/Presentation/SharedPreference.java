@@ -1,4 +1,4 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,9 +12,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 /**
- * Created by RishiS on 5/8/2016.
+ * Created by RishiS on 5/13/2016.
  */
 
+
+/*This class stores the state,city names which is marked as favorites by user... */
 public class SharedPreference {
 
     private final String SHARED_PREFS ="city_list";
@@ -47,14 +49,6 @@ public class SharedPreference {
             cities = new ArrayList<String>();
         if(!cities.contains(city)) {
             cities.add(city);
-            saveFavorites(context, cities);
-        }
-    }
-
-    public void removeFavorite(Context context, String city) {
-        ArrayList<String> cities = getFavorites(context);
-        if (cities != null) {
-            cities.remove(city);
             saveFavorites(context, cities);
         }
     }

@@ -1,25 +1,26 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.training1.myapplication.Model.City;
+import com.training1.iMobile3.Model.City;
 
 /**
- * Created by RishiS on 5/12/2016.
+ * Created by RishiS on 5/13/2016.
  */
 public class WeatherAsyncTaskLocation extends AsyncTask<String,Void,City> {
 
 
-    private DataHelperClass helper;
+    private DataHelperClass mHelper;
     private Context context;
     private ProgressDialog pd;
+    private final String SOMETHING_WENT_WRONG="SOMETHING_WENT_WRONG";
+    private final String SUCCESS="SUCCESS";
 
     public WeatherAsyncTaskLocation(Context context, ProgressDialog pd){
-        helper = new DataHelperClass();
+        mHelper = new DataHelperClass();
         this.context=context;
         this.pd=pd;
     }
@@ -33,10 +34,11 @@ public class WeatherAsyncTaskLocation extends AsyncTask<String,Void,City> {
     @Override
     protected City doInBackground(String... params) {
 
-        String url ="http://api.wunderground.com/api/" + helper.API_KEY + "/conditions/q/" +params[0]+".json";
+        String url ="http://api.wunderground.com/api/" + mHelper.API_KEY + "/conditions/q/"
+                +params[0]+".json";
 
-        String response = helper.makeAPICall(url);
-        return helper.parseResponse(response);
+        String response = mHelper.makeAPICall(url);
+        return mHelper.parseResponse(response);
     }
 
     @Override
@@ -44,7 +46,13 @@ public class WeatherAsyncTaskLocation extends AsyncTask<String,Void,City> {
         super.onPostExecute(city);
 
         Intent broadcastResults = new Intent();
-        broadcastResults.putExtra("cityByLocation", city);
+
+        if(city!=null) {
+            broadcastResults.putExtra("cityByLocation", city);
+            broadcastResults.putExtra("flag", SUCCESS);
+        } else {
+            broadcastResults.putExtra("flag", SOMETHING_WENT_WRONG);}
+
         broadcastResults.setAction("locationCompleteAction");
         context.sendBroadcast(broadcastResults);
     }

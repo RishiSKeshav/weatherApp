@@ -1,4 +1,4 @@
-package com.training1.myapplication.Model;
+package com.training1.iMobile3.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -8,15 +8,15 @@ import android.os.Parcelable;
  */
 public class City implements Parcelable {
 
-    private String cityName;
-    private String degree;
-    private String time;
-    private String weather;
-    private String feelsLike;
-    private String humidity;
-    private String windSpeed;
-    private String windDirection;
-    private String imageUrl;
+    private String cityName="";
+    private String degree="";
+    private String time="";
+    private String weather="";
+    private String feelsLike="";
+    private String humidity="";
+    private String windSpeed="";
+    private String windDirection="";
+    private String imageUrl="";
 
     public City(){
 

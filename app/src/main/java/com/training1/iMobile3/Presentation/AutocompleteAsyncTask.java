@@ -1,4 +1,4 @@
-package com.training1.myapplication;
+package com.training1.iMobile3.Presentation;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,13 +13,13 @@ import java.util.List;
  */
 public class AutocompleteAsyncTask extends AsyncTask<String,Void,List<String>> {
 
-    private DataHelperClass helper;
-    private Context context;
+    private DataHelperClass mHelper;
+    private Context mContext;
     private ProgressDialog pd;
 
     public AutocompleteAsyncTask(Context context,ProgressDialog pd){
-        helper = new DataHelperClass();
-        this.context=context;
+        mHelper = new DataHelperClass();
+        this.mContext=context;
         this.pd=pd;
     }
 
@@ -33,8 +33,9 @@ public class AutocompleteAsyncTask extends AsyncTask<String,Void,List<String>> {
 
         /*Log.d("text",replaceSpace(params[0]));*/
 
-        String response = helper.makeAPICall("http://autocomplete.wunderground.com/aq?query="+replaceSpace(params[0]));
-        List<String> list = helper.parseAutocompleteResponse(response);
+        String response = mHelper.makeAPICall("http://autocomplete.wunderground.com/aq?query="
+                +replaceSpace(params[0]));
+        List<String> list = mHelper.parseAutocompleteResponse(response);
         return list;
     }
 
@@ -45,7 +46,7 @@ public class AutocompleteAsyncTask extends AsyncTask<String,Void,List<String>> {
         Intent intent = new Intent();
         intent.setAction("autocompleteAction");
         intent.putStringArrayListExtra("suggestion",(ArrayList)list);
-        context.sendBroadcast(intent);
+        mContext.sendBroadcast(intent);
     }
 
     private String replaceSpace(String text){

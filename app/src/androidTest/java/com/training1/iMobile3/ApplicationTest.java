@@ -1,4 +1,4 @@
-package com.training1.myapplication;
+package com.training1.iMobile3;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
